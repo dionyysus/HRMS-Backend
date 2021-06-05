@@ -18,15 +18,15 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Table(name ="cover_letter")
 public class CoverLetter {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "cover_letter_id")
-	private int cover_letter_id;
+	private int coverLetterId;
 	
 	@Column(name = "cover_letter_content")
 	private String content;

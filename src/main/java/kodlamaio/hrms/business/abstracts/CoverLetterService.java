@@ -11,7 +11,9 @@ public interface CoverLetterService {
 	Result add(CoverLetter coverLetter);
 	Result update(CoverLetter coverLetter);
 	Result delete(int id);
+	
 	//DataResult<CoverLetter> getById(int id);
 	DataResult<List<CoverLetter>> getAll();
+
 	
 }

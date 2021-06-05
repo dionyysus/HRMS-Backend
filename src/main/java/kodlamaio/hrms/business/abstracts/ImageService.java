@@ -14,6 +14,7 @@ public interface ImageService {
 	Result update(Image image);
 	Result delete(int id);
 	
+	//DataResult<Image> getById(int id);
 	DataResult<List<Image>> getAll();
 	DataResult<Image> getAllByImageId(int id);
 	

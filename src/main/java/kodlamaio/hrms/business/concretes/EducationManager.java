@@ -51,13 +51,18 @@ public class EducationManager implements EducationService {
 	}
 
 	@Override
-	public DataResult<List<Education>> getAllByEmployeeId(int id) {
-		return new SuccessDataResult<List<Education>>(this.educationDao.getAllByEmployeeId(id));
-	}
-
-	@Override
 	public DataResult<List<Education>> gettAll() {
 		return new SuccessDataResult<List<Education>>(this.educationDao.findAll());
+	}
+
+	/*@Override
+	public DataResult<Education> getById(int id) {
+		return new SuccessDataResult<Education>(this.educationDao.getById(id));
+	}*/
+
+	@Override
+	public DataResult<List<Education>> getAllByEmployeeId(int id) {
+		return new SuccessDataResult<List<Education>>(this.educationDao.getAllByEmployeeId(id));
 	}
 
 }

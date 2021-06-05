@@ -47,12 +47,14 @@ public class CoverLetterManager implements CoverLetterService {
 
 	/*@Override
 	public DataResult<CoverLetter> getById(int id) {
-		return new SuccessDataResult<CoverLetter>(this.coverLetterDao.getById(id));
+		return new SuccessDataResult<CoverLetter>(this.coverLetterDao.);
 	}*/
 
 	@Override
 	public DataResult<List<CoverLetter>> getAll() {
 		return new SuccessDataResult<List<CoverLetter>>(this.coverLetterDao.findAll());
 	}
+
+	
 
 }

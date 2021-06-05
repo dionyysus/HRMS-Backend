@@ -16,7 +16,7 @@ import kodlamaio.hrms.core.utilities.result.Result;
 import kodlamaio.hrms.entities.concretes.CoverLetter;
 
 @RestController
-@RequestMapping("/api/coverLetter")
+@RequestMapping("/api/coverletter")
 public class CoverLetterController {
 
 	private CoverLetterService coverLetterService;
@@ -46,4 +46,9 @@ public class CoverLetterController {
 	public DataResult<List<CoverLetter>> getAll(){
 		return this.coverLetterService.getAll();
 	}
+	
+	/*@GetMapping("/getById")
+	public DataResult<CoverLetter> getById(@RequestParam("id") int id){
+		return this.coverLetterService.getById(id);
+	}*/
 }
