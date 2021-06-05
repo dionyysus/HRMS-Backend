@@ -3,6 +3,7 @@ package kodlamaio.hrms.business.concretes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import kodlamaio.hrms.business.abstracts.EmployeeService;
+import kodlamaio.hrms.core.utilities.result.DataResult;
 import kodlamaio.hrms.core.utilities.result.ErrorResult;
 import kodlamaio.hrms.core.utilities.result.Result;
 import kodlamaio.hrms.core.utilities.result.SuccessDataResult;
@@ -56,5 +57,18 @@ public class EmployeeManager extends UserManager<Employee> implements EmployeeSe
 		}
 		
 		return new SuccessResult("");
+	}
+
+
+	@Override
+	public Result userNullCheck(Employee t) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public DataResult<Employee> getById(int id) {
+		return new SuccessDataResult<Employee>(this.employeeDao.getById(id));
 	}
 }
