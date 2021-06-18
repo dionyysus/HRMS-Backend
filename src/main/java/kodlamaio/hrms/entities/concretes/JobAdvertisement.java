@@ -1,6 +1,6 @@
 package kodlamaio.hrms.entities.concretes;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,6 +32,9 @@ public class JobAdvertisement {
 	@Column(name = "job_advertisement_description")
 	private String jobDescription;
 	
+	@Column(name = "job_advertisement_is_confirmed")
+	private boolean jobAdvertisementIsConfirmed = false;
+	
 	@Column(name = "job_advertisement_max_wage")
 	private int jobMaxWage;
 	
@@ -40,13 +45,13 @@ public class JobAdvertisement {
 	private int jobNumberOpenPosition;
 	
 	@Column(name = "job_advertisement_posted_date")
-	private LocalDate jobAdvertisementPostedDate;
+	private Date jobAdvertisementPostedDate;
 	
 	@Column(name="job_advertisement_is_active")
-	private boolean jobAdvertisementIsActive;
+	private boolean jobAdvertisementIsActive = false;
 	
 	@Column(name = "job_advertisement_app_deadline")
-	private LocalDate jobAppDeadline;
+	private Date jobAppDeadline;
 	
 	
 	
@@ -63,6 +68,15 @@ public class JobAdvertisement {
 	@JoinColumn(name = "id")
 	private Employer employer;
 	
+	@ManyToOne()
+	@JoinColumn(name = "work_id")
+	private Work work;	
+	
+	@ManyToOne()
+	@JoinColumn(name = "work_hours_id")
+	private WorkHours workHours;	
+
+
 	
 	
 

@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.business.abstracts.EmployerService;
+import kodlamaio.hrms.core.utilities.result.DataResult;
+import kodlamaio.hrms.core.utilities.result.ErrorDataResult;
 import kodlamaio.hrms.core.utilities.result.ErrorResult;
 import kodlamaio.hrms.core.utilities.result.Result;
 import kodlamaio.hrms.core.utilities.result.SuccessDataResult;
@@ -52,4 +54,18 @@ public class EmployerManager extends UserManager<Employer> implements EmployerSe
 	        }
 	        return new ErrorResult("Password not confirmed");
 	    }
+
+	@Override
+	public Result userNullCheck(Employer t) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DataResult<Employer> getById(int id) {
+		if(!this.employerDao.existsById(id)) {
+			return new ErrorDataResult<Employer>("There isn't such an employer");
+		}
+		return new SuccessDataResult<Employer>(this.employerDao.getById(id),"Data listed");
+	}
 }

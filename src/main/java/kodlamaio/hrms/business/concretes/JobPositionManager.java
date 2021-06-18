@@ -14,6 +14,7 @@ import kodlamaio.hrms.core.utilities.result.SuccessResult;
 import kodlamaio.hrms.core.utilities.result.BusinessRules.BusinessRules;
 import kodlamaio.hrms.dataAccess.abstracts.JobPositionDao;
 import kodlamaio.hrms.entities.concretes.JobPosition;
+import kodlamaio.hrms.entities.concretes.Work;
 
 @Service
 public class JobPositionManager implements JobPositionService {
@@ -49,5 +50,10 @@ public class JobPositionManager implements JobPositionService {
         }
         return new SuccessResult();
     }
+
+	@Override
+	public DataResult<JobPosition> getById(int id) {
+		return new SuccessDataResult<JobPosition>(this.jobPositionDao.findById(id));
+	}
 
 }
